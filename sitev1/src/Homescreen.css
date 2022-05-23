@@ -1,0 +1,7 @@
+/* all h1 and h2 tags should be centered */
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
