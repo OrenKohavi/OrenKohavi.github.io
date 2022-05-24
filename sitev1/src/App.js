@@ -7,15 +7,22 @@ import Sorting from './Project_Pages/Sorting';
 
 function App() {
   return (
-    <div className="App" style={{background: "#FAEBD7", height:"100vh"}}>
+    //Disable overflow for x and y
+    <div className="App" style={
+        {background: "#FAEBD7",
+        height:"100vh",
+        overflowX:"hidden",
+        overflowY:"hidden"}}>
       <div className="NavBar">
         <Link to="/">Home</Link> <span> </span>
         <Link to="/sorting">Sorting</Link>
       </div>
-      <Routes>
-        <Route path="/" element={<Homescreen />} />
-        <Route path="/sorting" element={<Sorting />} />
-      </Routes>
+      <div className='Routes'>
+        <Routes>
+          <Route path="/" element={<Homescreen />} />
+          <Route path="/sorting" element={<Sorting />} />
+        </Routes>
+      </div>
     </div>
   );
 }
