@@ -13,11 +13,11 @@ function App() {
         height:"100vh",
         overflowX:"hidden",
         overflowY:"hidden"}}>
-      <div className="NavBar">
+      <div className="navbar">
         <Link to="/">Home</Link> <span> </span>
         <Link to="/sorting">Sorting</Link>
       </div>
-      <div className='Routes'>
+      <div className='routes'>
         <Routes>
           <Route path="/" element={<Homescreen />} />
           <Route path="/sorting" element={<Sorting />} />
