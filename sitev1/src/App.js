@@ -9,7 +9,7 @@ function App() {
   return (
     //Disable overflow for x and y
     <div className="App" style={
-        {background: "#FAEBD7",
+        {background: "#f2e7d8",
         height:"100vh",
         overflowX:"hidden",
         overflowY:"hidden"}}>
