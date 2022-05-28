@@ -1,3 +1,11 @@
+h1 {
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+}
+
 .sorting {
     width: 100%;
     height: 100%;
@@ -16,7 +24,35 @@
     user-select: none;
 }
 
+.card-number-select {
+    width: 4ch;
+    height: 3ch;
+    vertical-align: middle;
+    font-size: large;
+}
+
+/* align reset-button-div to the left, and next-button-div to the center */
+
+.reset-button-div {
+    flex: 1;
+    margin-left: 2vw;
+}
+
+.next-button-div {
+    flex: 4;
+    margin-left: 30vw;
+}
+
+.sorting-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
 .sorting-header {
+    text-align: center;
+}
+
+.sorting-instructions {
     text-align: center;
 }
 
@@ -34,14 +70,14 @@
     flex-wrap: nowrap;
     margin-left: 1vw;
     margin-right: 1vw;
-    margin-top: 20px;
+    margin-top: 3vh;
 }
 
 .cardContainer {
     display: flex;
     width: 100%;
     height: 100%;
-    margin: 10px;
+    margin: 0.5vw;
 }
 
 .cardLabel {
@@ -75,7 +111,7 @@
         line-height: 200px;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        border-radius: 2px;
+        border-radius: 5%;
     }
 
     .card .back {

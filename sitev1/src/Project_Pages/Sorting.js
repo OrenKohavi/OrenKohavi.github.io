@@ -1,6 +1,8 @@
 import './Sorting.css';
 import React, { useState } from 'react';
-import card_front from '../img/card_front.jpg';  
+import card_front from '../img/card_front.jpg';
+import { AwesomeButton } from "react-awesome-button";
+import "react-awesome-button/dist/styles.css";
 
 export default function Sorting() {
     //This may be overuse of useState, but better safe than sorry
@@ -12,6 +14,7 @@ export default function Sorting() {
     const [flipArray, setFlipArray] = useState(Array(num_cards).fill(false));
     const [flipAllowed, setFlipAllowed] = useState(true);
     const [alertedRotation, setAlertedRotation] = useState(false);
+    const [doneDisabled, setDoneDisabled] = useState(true);
 
     let on_cardflip = () => {
         //This function is called before the card is set to flipped in flipArray
@@ -36,7 +39,13 @@ export default function Sorting() {
     }
 
     let generate_card_values = () => {
-        let new_card_array = Array.from({length: num_cards}, () => Math.floor(Math.random() * 100));
+        //Hacky fix: Sometimes num_cards doesn't update in time, leaving the last card without a value
+        //No harm in making the list too long though (unused values are simply never accessed)
+        //So generate an array slightly too long, just in case (starting i at -2)
+        let new_card_array = [];
+        for (let i = -2; i < num_cards; i++) {
+            new_card_array.push(Math.floor(Math.random() * 100));
+        }
         setCardValues(new_card_array)
     }
 
@@ -75,20 +84,34 @@ export default function Sorting() {
         <div className="sorting">
             <div className="sorting-header">
                 <h1>Are you more efficient than a sorting algorithm?</h1>
-                <h2>fuck around and find out!!!</h2>
+                <h2>reveal cards, re-order cards, and see how many operations it takes you.</h2>
+                <br></br>
             </div>
             <div className="sorting-game">
                 <div className="sorting-info">
-                    <span>Number of Cards:</span>
-                    <input type="number" min="1" max="100" defaultValue="7" onChange={(e) => {
-                        setNumCards(e.target.value);
-                        unflip_cards();
-                        generate_card_values();
-                    }}/>
-                    <h2># Of Operations: {operations}</h2>
+                    <h2>
+                        <label className="card-number-select-label" for="card-number-select">How many cards: </label>
+                        <input className="card-number-select" type="number" min="4" max="15" defaultValue="7" onChange={(e) => {
+                            setNumCards(e.target.value);
+                            unflip_cards();
+                            generate_card_values();
+                            render_all_cards();
+                        }}/>
+                    </h2>
+                    <h2>Number Of Operations: {operations}</h2>
                 </div>
-                <button onClick={unflip_cards}>Unflip</button>
-                <button onClick={() => {alert(card_values)}}>Show Values (DEBUG)</button>
+                <div className="sorting-instructions">
+                    <p>Soon, this will be an interactive display showing the next step to take</p>
+                    <p>Select 2 Cards ➡️ Drag Cards Around ➡️ Click 'Done' ➡️ Repeat</p>
+                </div>
+                <div className="sorting-buttons">
+                    <div className="reset-button-div">
+                        <AwesomeButton type="primary" ripple={true} disabled={false} onPress={unflip_cards}>Restart Game</AwesomeButton>
+                    </div>
+                    <div className="next-button-div">
+                        <AwesomeButton type="primary" disabled={doneDisabled} onPress={unflip_cards}>Next Operation</AwesomeButton>
+                    </div>
+                </div>
                 <div className="sorting-game-cards">
                     {render_all_cards()}
                 </div>
@@ -110,10 +133,10 @@ function Card (props) {
         <input type="checkbox" checked={props.isFlipped} disabled={props.isFlipped || !props.flipAllowed} className="cardInput" onClick={handleClick} onChange={() => {}}/>
         <div className="card">
             <div className="front not-selectable">
-                Front :)
+                
             </div>
             <div className="back not-selectable">
-                <h1>{props.value}</h1>
+                <h1>{props. value}</h1>
             </div>
         </div>
         </label>

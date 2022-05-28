@@ -1,5 +1,4 @@
 import './Homescreen.css';
-import { Link } from "react-router-dom";
 import profilepic from './img/crewmate_profilepic.jpg';
 
 export default function Homescreen() {
