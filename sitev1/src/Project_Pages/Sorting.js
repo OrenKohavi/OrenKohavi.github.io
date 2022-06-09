@@ -1,6 +1,5 @@
 import './Sorting.css';
 import React, { useEffect, useState } from 'react';
-import card_front from '../img/card_front.jpg';
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 
@@ -60,12 +59,15 @@ export default function Sorting() {
         //Reset the cards and the operations counter
         //Also re-generate the card values
         unflip_cards();
-        generate_card_values();
-        setOperations(0);
+        //Wait 200ms for the cards to flip back over
+        setTimeout(() => {      
+            generate_card_values();
+            setOperations(0);
+        }, 200);
     }
 
     let finishop_button_click = () => {
-        //This function is called when the done button is clicked
+        //This function is called when the finish_op(eration) button is clicked
         //TODO: Check if the cards are in the correct order
         unflip_cards();
         setOperations(operations + 1);
@@ -172,7 +174,7 @@ function Card (props) {
                 
             </div>
             <div className="back not-selectable">
-                <h1>{props. value}</h1>
+                <h1>{props.value}</h1>
             </div>
         </div>
         </label>
