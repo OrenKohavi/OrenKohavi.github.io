@@ -1,15 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.21a3e2df.css",
-    "main.js": "/static/js/main.6d39faf9.js",
-    "static/media/card_front.jpg": "/static/media/card_front.957005461e80ef626bc4.jpg",
+    "main.css": "/static/css/main.a13c1c69.css",
+    "main.js": "/static/js/main.5db820cd.js",
     "static/media/crewmate_profilepic.jpg": "/static/media/crewmate_profilepic.957005461e80ef626bc4.jpg",
     "index.html": "/index.html",
-    "main.21a3e2df.css.map": "/static/css/main.21a3e2df.css.map",
-    "main.6d39faf9.js.map": "/static/js/main.6d39faf9.js.map"
+    "main.a13c1c69.css.map": "/static/css/main.a13c1c69.css.map",
+    "main.5db820cd.js.map": "/static/js/main.5db820cd.js.map"
   },
   "entrypoints": [
-    "static/css/main.21a3e2df.css",
-    "static/js/main.6d39faf9.js"
+    "static/css/main.a13c1c69.css",
+    "static/js/main.5db820cd.js"
   ]
 }
