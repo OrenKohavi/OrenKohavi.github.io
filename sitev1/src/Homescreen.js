@@ -5,7 +5,10 @@ import {isMobile} from 'react-device-detect'
 import { AwesomeButton } from 'react-awesome-button';
 import "react-awesome-button/dist/styles.css";
 
-export default function Homescreen() {
+export default function Homescreen(props) {
+    const landing_style = {
+        backgroundColor: props.landingbg,
+    }
     const location = useLocation();
     let should_redirect = !(location.pathname.includes("/home"));
     if (isMobile){
@@ -20,11 +23,12 @@ export default function Homescreen() {
     return (
         <div className="Homescreen">
             {should_redirect ? <Navigate to="/home" /> : null}
-            <div className="landing">
+            <div className="landing" style={landing_style}>
                 {/* Full-height landing page */}
                 <br></br>
                 <h1 className="introtext white centered">Hi, I'm Oren</h1>
                 <h2 className="white centered">I'm a tech person, blah blah</h2>
+                <h2 className="white centered">Rather than using a template, I decided to build an highly-performant website from scratch using react</h2>
                 <br></br>
                 <img src={profilepic} alt="impasta!" className="profilepic"/>
                 <h2 className="white centered">Download my resume <u>here</u></h2>

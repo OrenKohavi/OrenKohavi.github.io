@@ -115,14 +115,14 @@ export default function Sorting() {
 
     return (
         <div className="sorting">
-            <div className="sorting-header">
-                <h1>Are you more efficient than a sorting algorithm?</h1>
-                <h2>reveal cards, re-order cards, and see how many operations it takes you.</h2>
+            <div className="sorting-header nomargin">
+                <h1 className="nomargin">Are you more efficient than a sorting algorithm?</h1>
+                <h2 className="nomargin">reveal cards, re-order cards, and see how many operations it takes you.</h2>
                 <br></br>
             </div>
             <div className="sorting-game">
                 <div className="sorting-info">
-                    <h2>
+                    <h2 className="nomargin">
                         <label className="card-number-select-label" for="card-number-select">How many cards: </label>
                         <input className="card-number-select" type="number" min="4" max="15" defaultValue="7" onChange={(e) => {
                             let user_confirmation = num_cards_changed();
@@ -131,7 +131,7 @@ export default function Sorting() {
                             }
                         }}/>
                     </h2>
-                    <h2>Number Of Operations: {operations}</h2>
+                    <h2 className="nomargin">Number Of Operations: {operations}</h2>
                 </div>
                 <div className="sorting-instructions">
                     <p>Soon, this will be an interactive display showing the next step to take</p>
