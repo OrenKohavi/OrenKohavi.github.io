@@ -1,6 +1,6 @@
 import './Homescreen.css';
-import profilepic from './img/crewmate_profilepic.jpg';
-import { Navigate, useLocation, Link } from 'react-router-dom';
+import profilepic from '../img/crewmate_profilepic.jpg';
+import { Link } from 'react-router-dom';
 import {isMobile} from 'react-device-detect'
 import { AwesomeButton } from 'react-awesome-button';
 import "react-awesome-button/dist/styles.css";
@@ -9,12 +9,9 @@ export default function Homescreen(props) {
     const landing_style = {
         backgroundColor: props.landingbg,
     }
-    const location = useLocation();
-    let should_redirect = !(location.pathname.includes("/home"));
     if (isMobile){
         return (
             <div className="Mobile-Homescreen">
-                {should_redirect ? <Navigate to="/home" /> : null}
                 <h1>Mobile page -- WIP</h1>
                 <h2>View my website on a desktop computer for the best experience</h2>
             </div>
@@ -22,7 +19,6 @@ export default function Homescreen(props) {
     }
     return (
         <div className="Homescreen">
-            {should_redirect ? <Navigate to="/home" /> : null}
             <div className="landing" style={landing_style}>
                 {/* Full-height landing page */}
                 <br></br>

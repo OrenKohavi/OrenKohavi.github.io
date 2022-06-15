@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
-import './global.css'
+import '../global.css'
 
 export default function Projects() {
     return (

@@ -1,7 +1,7 @@
 import './Navbar.css';
-import './global.css';
+import '../global.css';
 import { Link, useLocation } from "react-router-dom";
-import home_icon from './img/home_icon.png';
+import home_icon from '../img/home_icon.png';
 
 export default function Navbar(props) {
     const location = useLocation().pathname;

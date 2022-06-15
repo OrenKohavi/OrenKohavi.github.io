@@ -1,5 +1,5 @@
 import './About.css'
-import './global.css'
+import '../global.css'
 
 export default function About(props) {
     return (

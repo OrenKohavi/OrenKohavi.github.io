@@ -1,4 +1,4 @@
-import "./global.css"
+import "../global.css"
 import { Link } from "react-router-dom";
 import { AwesomeButton } from "react-awesome-button";
 

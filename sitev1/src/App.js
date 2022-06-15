@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
-import Homescreen from './Homescreen';
-import About from './About';
-import Projects from './Projects';
+import Homescreen from './pages/Homescreen';
+import About from './pages/About';
+import Projects from './pages/Projects';
 import Sorting from './Project_Pages/Sorting';
-import Navbar from './Navbar';
-import PageNotFound from './PageNotFound';
+import Navbar from './components/Navbar';
+import PageNotFound from './pages/PageNotFound';
 import RedirectHome from './pages/RedirectHome'
 
 
