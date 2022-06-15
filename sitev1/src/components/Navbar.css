@@ -2,6 +2,7 @@
     overflow: hidden;
     height: 7vh;
     width: 100vw;
+    margin: 0px;
     border-bottom: 0.3vw solid black;
 }
 
@@ -16,7 +17,8 @@
 /* Contains all the link elements */
 .navbar-links {
     height: 7vh;
-    width: 100vw;
+    width: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

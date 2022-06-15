@@ -1,13 +1,81 @@
-.profilepic {
-  width: 15vw;
-  height: 15vw;
-  border-radius: 40%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+.Homescreen {
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .landing {
   width: 100vw;
   height: 100vh;
+}
+
+.landing-about {
+  width: 55vw;
+  height: 80vh;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-picture-hello {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.profilepic {
+  width: 18vw;
+  height: 18vw;
+  border-radius: 20%;
+  flex: 1;
+}
+
+.intro-text-container {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.hello-text {
+  font-size: 4vw;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  margin: 0 auto;
+  margin-top: 2vw;
+  margin-left: 2vw;
+}
+
+.hello-text-small {
+  font-size: 2vw;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  margin: 0 auto;
+  margin-top: 1vw;
+  margin-left: 2vw;
+  max-width: 25vw;
+}
+
+.landing-details {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-details-text {
+  font-size: 2vw;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  margin: 0 auto;
+  margin-top: 1vw;
+  margin-left: 2vw;
+}
+
+.resume-link {
+  color: white
 }

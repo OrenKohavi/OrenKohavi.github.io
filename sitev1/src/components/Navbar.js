@@ -5,7 +5,7 @@ import home_icon from '../img/home_icon.png';
 
 export default function Navbar(props) {
     const location = useLocation().pathname;
-    let hideNavbar = location.includes("/home") && false;
+    let hideNavbar = location.includes("/home");
     if (hideNavbar) {
         return null;
     }
@@ -29,7 +29,7 @@ export default function Navbar(props) {
 function LinkButton(props) {
     let icon_body = null //Empty element unless there is an icon
     if (props.icon) {
-        icon_body = <img className='navbar-link-icon' src={props.icon}></img>
+        icon_body = <img className='navbar-link-icon' alt="" src={props.icon}></img>
     }
     return (
         <div className='navbar-link'>

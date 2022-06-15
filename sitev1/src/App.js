@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Homescreen from './pages/Homescreen';
 import About from './pages/About';
 import Projects from './pages/Projects';
