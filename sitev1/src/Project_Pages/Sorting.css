@@ -13,6 +13,7 @@ h2 {
     flex-direction: column;
     justify-content: left;
     align-items: left;
+    overflow-x: hidden;
 }
 
 .not-selectable {

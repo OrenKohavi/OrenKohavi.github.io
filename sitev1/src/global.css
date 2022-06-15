@@ -1,5 +1,13 @@
+* {
+    overflow-x: hidden;
+}
+
 .centered{
     text-align: center;
     justify-content: center;
     align-items: center;
+}
+
+.white {
+    color: white;
 }

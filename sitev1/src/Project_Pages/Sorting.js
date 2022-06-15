@@ -2,6 +2,7 @@ import './Sorting.css';
 import React, { useEffect, useState } from 'react';
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
+import {isMobile} from 'react-device-detect'
 
 export default function Sorting() {
     //This may be overuse of useState, but better safe than sorry
@@ -24,11 +25,6 @@ export default function Sorting() {
             setFinishopEnabled(false);
         }
     }, [flipAllowed]);
-
-    useEffect(() => {
-        //re-generate card values when num_cards changes
-        generate_card_values();
-    }, [num_cards]);
 
     let on_cardflip = () => {
         //This function is called before the card is set to flipped in flipArray
@@ -86,6 +82,7 @@ export default function Sorting() {
         }
         setCardValues(new_card_array)
     }
+    useEffect(generate_card_values, [num_cards]);
 
     let render_all_cards = () => {
         let cards = [];
@@ -111,8 +108,8 @@ export default function Sorting() {
     }
 
 
-    if (window.innerWidth < window.innerHeight && !alertedRotation) {
-        alert("This page is designed for a desktop or laptop screen. Please rotate your device to landscape mode.");
+    if (isMobile && !alertedRotation) {
+        alert("This page is designed for a desktop or laptop screen, You'll get a better experience there.");
         setAlertedRotation(true);
     }
 

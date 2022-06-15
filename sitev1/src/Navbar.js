@@ -1,12 +1,18 @@
 import './Navbar.css';
-import { Link } from "react-router-dom";
+import './global.css';
+import { Link, useLocation } from "react-router-dom";
 import home_icon from './img/home_icon.png';
 
 export default function Navbar(props) {
+    const location = useLocation().pathname;
+    let hideNavbar = location.includes("/home") && false;
+    if (hideNavbar) {
+        return null;
+    }
     return (
-        <div className="navbar" style={{background: props.bg}}>
+        <div className="navbar centered" style={{background: props.bg}}>
             <div className="navbar-links">
-                <LinkButton to={"/"} icon={home_icon} text={"Home"}/>
+                <LinkButton to={"/home"} icon={home_icon} text={"Home"}/>
                 <Bar/>
                 <LinkButton to={"/about"} text={"About"}/>
                 <Bar/>
@@ -21,7 +27,7 @@ export default function Navbar(props) {
 }
 
 function LinkButton(props) {
-    let icon_body = <></> //Empty element unless there is an icon
+    let icon_body = null //Empty element unless there is an icon
     if (props.icon) {
         icon_body = <img className='navbar-link-icon' src={props.icon}></img>
     }

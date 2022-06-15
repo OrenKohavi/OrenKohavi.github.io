@@ -2,8 +2,6 @@
     overflow: hidden;
     height: 7vh;
     width: 100vw;
-    border-left: 0.1vw solid black;
-    border-right: 0.1vw solid black;
     border-bottom: 0.3vw solid black;
 }
 
