@@ -10,6 +10,15 @@
   height: 100vh;
 }
 
+.mobile-landing {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .landing-about {
   width: 55vw;
   height: 80vh;
@@ -32,6 +41,16 @@
   width: 18vw;
   height: 18vw;
   border-radius: 20%;
+  flex: 1;
+}
+
+.mobile-profilepic {
+  min-width: 60vw;
+  min-height: 60vw;
+  max-width: 60vw;
+  max-height: 60vw;
+  border-radius: 20%;
+  margin-top: 5vw;
   flex: 1;
 }
 
