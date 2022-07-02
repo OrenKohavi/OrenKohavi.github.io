@@ -8,7 +8,7 @@ import "react-awesome-button/dist/styles.css";
 
 export default function Homescreen(props) {
     const description_text = "I'm a programmer, blah blah here is some powerful statement";
-    const website_speed_text = "I love efficiency and performance, so instead of using a template I decided to build my own website from scratch. Try it, it's fast.";
+    const website_speed_text = "I love efficiency and performance, so instead of using a template, I decided to build my own website from the ground up. Try it, it's fast.";
     if (isMobile){
         return (
             <div className="Mobile-Homescreen">
@@ -47,10 +47,11 @@ export default function Homescreen(props) {
                         </div>
                     </div>
                     <div className="landing-details">
+                        <br className='not-selectable'></br>
                         <h2 className="landing-details-text">
                             {website_speed_text}
                         </h2>
-                        <br></br>
+                        <br className='not-selectable'></br>
                         <h2 className="landing-details-text">
                             Read my resume <a className="resume-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">here</a>
                         </h2>

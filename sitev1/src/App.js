@@ -1,12 +1,14 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Homescreen from './pages/Homescreen';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Sorting from './Project_Pages/Sorting';
-import Navbar from './components/Navbar';
+import MyNavbar from './components/MyNavbar';
 import PageNotFound from './pages/PageNotFound';
 import RedirectHome from './components/RedirectHome'
+
 
 
 function App() {
@@ -28,7 +30,7 @@ function App() {
   }, [location])
   return (
     <div className="App">
-      <Navbar bg={inactive} fg={active}/>
+      <MyNavbar bg={inactive} fg={active}/>
       <div className='routes'>
         <Routes>
           <Route path="/" element={<RedirectHome />} />

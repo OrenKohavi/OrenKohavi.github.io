@@ -1,14 +1,37 @@
-import './Navbar.css';
+//import './MyNavbar.css';
 import '../global.css';
 import { Link, useLocation } from "react-router-dom";
 import home_icon from '../img/home_icon.png';
+import Navbar from 'react-bootstrap/Navbar'
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import NavDropdown from 'react-bootstrap/NavDropdown'
 
-export default function Navbar(props) {
+
+export default function MyNavbar(props) {
     const location = useLocation().pathname;
     let hideNavbar = location.includes("/home");
-    if (hideNavbar) {
-        return null;
-    }
+    //if (hideNavbar) {
+    //    return null;
+    //}
+    return (
+        <div className="boostrap-navbar">
+        <Container class='position-absolute top-0 start-0'>
+            <Navbar variant='dark' bg={props.bg} sticky='top'>
+                <Container>
+                    {/*<Navbar.Brand href="#/home">Home</Navbar.Brand>*/}
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Nav className="navbar-links">
+                        <Nav.Link href="#/home">Home</Nav.Link>
+                        <Nav.Link href="#/projects">Projects</Nav.Link>
+                        <Nav.Link href="#/projects">Else</Nav.Link>
+                    </Nav>
+                </Container>
+            </Navbar>
+        </Container>
+        </div>
+    );
+    /*
     return (
         <div className="navbar centered" style={{background: props.bg}}>
             <div className="navbar-links">
@@ -17,13 +40,10 @@ export default function Navbar(props) {
                 <LinkButton to={"/about"} text={"About"}/>
                 <Bar/>
                 <LinkButton to={"/projects"} text={"Projects"}/>
-                {/*
-                <Bar/>
-                <LinkButton to={"/projects/sorting"} text={"Sorting Game"}/>
-                */}
             </div>
         </div>
     )
+    */
 }
 
 function LinkButton(props) {
