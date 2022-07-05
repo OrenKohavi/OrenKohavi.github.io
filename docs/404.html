@@ -2,19 +2,27 @@
 <html>
    <head>
       <title>404</title>
-      <meta http-equiv = "refresh" content = "0; url = www.orenkohavi.com/#/404" />
+      <meta http-equiv = "refresh" content = "3; url = www.orenkohavi.com/#/404" />
    </head>
    <body>
     <!-- Script that alerts the current text of the url -->
     <script>
-      alert(window.location.href);
-      if (window.location.href.includes("/#/")) {
+      var url = window.location.href;
+      alert(url);
+      if (url.includes("/#/")) {
         //Seems like it's already inside react hashrouter, wonky link, so just do basic 404
+        alert("hashrouter detected")
         window.location.href = "www.orenkohavi.com/#/404";
       } else {
+        alert("no hashrouter detected")
         //Most likely, the user entered a link without using hashrouter syntax, so try to automatically fix it.
-        window.location.href = "www.orenkohavi.com/#/" + window.location.href;
+        var url_split = url.split("orenkohavi.com/");
+        var url_text = url_split.at(-1);
+        alert(url_text);
+        window.location.href = "www.orenkohavi.com/#/" + url_text;
       }
     </script>
+    <h1 style="text-align:center;">You've reached a 404 Page!</h1>
+    <h2 style="text-align:center;">If nothing happens, click <a href="www.orenkohavi.com/">here</a></h2>
    </body>
 </html>
