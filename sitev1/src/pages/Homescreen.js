@@ -1,6 +1,6 @@
 import './Homescreen.css';
 import '../global.css'
-import profilepic from '../img/headshot.png';
+import profilepic from '../assets/headshot.png';
 import { Link } from 'react-router-dom';
 import {isMobile} from 'react-device-detect'
 import { AwesomeButton } from 'react-awesome-button';
@@ -53,7 +53,7 @@ export default function Homescreen(props) {
                         </h2>
                         <br className='not-selectable'></br>
                         <h2 className="landing-details-text">
-                            Read my resume <a className="resume-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">here</a>
+                            Read my resume <a className="resume-link" href="sitev1\src\assets\Kohavi_Resume.pdf" download>here</a>
                         </h2>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 //import './MyNavbar.css';
 import '../global.css';
 import { Link, useLocation } from "react-router-dom";
-import home_icon from '../img/home_icon.png';
+import home_icon from '../assets/home_icon.png';
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'

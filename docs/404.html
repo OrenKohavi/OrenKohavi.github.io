@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>404</title>
+      <meta http-equiv = "refresh" content = "0; url = www.orenkohavi.com/#/404" />
+   </head>
+   <body>
+    <!-- Script that alerts the current text of the url -->
+    <script>
+      alert(window.location.href);
+      if (window.location.href.includes("/#/")) {
+        //Seems like it's already inside react hashrouter, wonky link, so just do basic 404
+        window.location.href = "www.orenkohavi.com/#/404";
+      } else {
+        //Most likely, the user entered a link without using hashrouter syntax, so try to automatically fix it.
+        window.location.href = "www.orenkohavi.com/#/" + window.location.href;
+      }
+    </script>
+   </body>
+</html>
