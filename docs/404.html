@@ -2,23 +2,24 @@
 <html>
    <head>
       <title>404</title>
-      <meta http-equiv = "refresh" content = "3; url = www.orenkohavi.com/#/404" />
+      <!-- Backup incase the script fails, it will just redirect to a 404 page -->
+      <meta http-equiv = "refresh" content = "2; url = www.orenkohavi.com/#/404" />
    </head>
    <body>
     <!-- Script that alerts the current text of the url -->
     <script>
       var url = window.location.href;
-      alert(url);
+      //alert(url);
       if (url.includes("/#/")) {
         //Seems like it's already inside react hashrouter, wonky link, so just do basic 404
-        alert("hashrouter detected")
+        //alert("hashrouter detected")
         window.location.replace("http://orenkohavi.com");
       } else {
-        alert("no hashrouter detected")
+        //alert("no hashrouter detected")
         //Most likely, the user entered a link without using hashrouter syntax, so try to automatically fix it.
         var url_split = url.split("orenkohavi.com/");
         var url_text = url_split.at(-1);
-        alert("Redirecting to: " + url_text);
+        //alert("Redirecting to: " + url_text);
         window.location.replace("http://www.orenkohavi.com/#/" + url_text);
       }
     </script>
