@@ -12,14 +12,14 @@
       if (url.includes("/#/")) {
         //Seems like it's already inside react hashrouter, wonky link, so just do basic 404
         alert("hashrouter detected")
-        window.location.href = "www.orenkohavi.com/#/404";
+        window.location.replace("http://orenkohavi.com");
       } else {
         alert("no hashrouter detected")
         //Most likely, the user entered a link without using hashrouter syntax, so try to automatically fix it.
         var url_split = url.split("orenkohavi.com/");
         var url_text = url_split.at(-1);
-        alert(url_text);
-        window.location.href = "www.orenkohavi.com/#/" + url_text;
+        alert("Redirecting to: " + url_text);
+        window.location.replace("http://www.orenkohavi.com/#/" + url_text);
       }
     </script>
     <h1 style="text-align:center;">You've reached a 404 Page!</h1>
