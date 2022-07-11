@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.78dff090.css",
-    "main.js": "/static/js/main.69ea4b7a.js",
+    "main.css": "/static/css/main.b57d6fc4.css",
+    "main.js": "/static/js/main.c5354666.js",
     "static/media/headshot.png": "/static/media/headshot.000874c5ceb57394a148.png",
+    "static/media/Kohavi_Resume.pdf": "/static/media/Kohavi_Resume.88ca6ff76f94d2832d9b.pdf",
     "index.html": "/index.html",
-    "main.78dff090.css.map": "/static/css/main.78dff090.css.map",
-    "main.69ea4b7a.js.map": "/static/js/main.69ea4b7a.js.map"
+    "main.b57d6fc4.css.map": "/static/css/main.b57d6fc4.css.map",
+    "main.c5354666.js.map": "/static/js/main.c5354666.js.map"
   },
   "entrypoints": [
-    "static/css/main.78dff090.css",
-    "static/js/main.69ea4b7a.js"
+    "static/css/main.b57d6fc4.css",
+    "static/js/main.c5354666.js"
   ]
 }
