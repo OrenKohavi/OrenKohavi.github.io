@@ -6,10 +6,20 @@ import { Link } from 'react-router-dom';
 import {isMobile} from 'react-device-detect'
 import { AwesomeButton } from 'react-awesome-button';
 import "react-awesome-button/dist/styles.css";
+import DownArrow from '../components/DownArrow';
 
 export default function Homescreen(props) {
     const description_text = "I'm a programmer, blah blah here is some powerful statement";
     const website_speed_text = "I love efficiency and performance, so instead of using a template, I decided to build my own website from the ground up. Try it, it's fast.";
+    
+    var scrollDown = () => {
+        window.scroll({
+            bottom: 0, // or document.scrollingElement || document.body
+            left: 0,
+            behavior: 'smooth'
+        });
+    }
+    
     if (isMobile){
         return (
             <div className="Mobile-Homescreen">
@@ -56,6 +66,11 @@ export default function Homescreen(props) {
                         <h2 className="landing-details-text">
                             Read my resume <a className="resume-link" href={resume} download="Kohavi_Resume.pdf">here</a>
                         </h2>
+                    </div>
+                    <div className="landing-arrow-div">
+                        <br></br>
+                        <br></br>
+                        <DownArrow onClick={scrollDown} className="landing-arrow"/>
                     </div>
                 </div>
             </div>

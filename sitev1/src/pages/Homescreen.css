@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
+
 .Homescreen {
   overflow-y: auto;
   overflow-x: hidden;
@@ -20,9 +21,9 @@
 
 .landing-about {
   width: 55vw;
-  height: 80vh;
+  height: 90vh;
   position: absolute;
-  top: 50%; left: 50%;
+  top: 55%; left: 50%;
   transform: translate(-50%,-50%);
   display: flex;
   flex-direction: column;
@@ -92,6 +93,11 @@
   margin: 0 auto;
   margin-top: 1vw;
   margin-left: 2vw;
+}
+
+.landing-arrow-div {
+  flex: 1;
+  align-self: center;
 }
 
 .resume-link {
