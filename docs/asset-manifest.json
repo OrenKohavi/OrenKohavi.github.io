@@ -1,15 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.b57d6fc4.css",
-    "main.js": "/static/js/main.c5354666.js",
+    "main.css": "/static/css/main.c73e5dc2.css",
+    "main.js": "/static/js/main.ba31e47f.js",
     "static/media/headshot.png": "/static/media/headshot.000874c5ceb57394a148.png",
+    "static/media/p7.jpg": "/static/media/p7.8fa69813ab211568a9e5.jpg",
+    "static/media/p9.jpg": "/static/media/p9.b21bd778b72a77676698.jpg",
+    "static/media/p4.jpg": "/static/media/p4.869cd546a2ff9a4b10f6.jpg",
+    "static/media/p8.jpg": "/static/media/p8.74be96a6dd17aeb9ac72.jpg",
+    "static/media/p1.jpg": "/static/media/p1.8830530634bd4b5f790c.jpg",
+    "static/media/p6.jpg": "/static/media/p6.1049eb3ebc1c20a8169a.jpg",
+    "static/media/p2.jpg": "/static/media/p2.6524a80841d6e39e2100.jpg",
+    "static/media/p3.jpg": "/static/media/p3.471cbc859409d00a44d8.jpg",
     "static/media/Kohavi_Resume.pdf": "/static/media/Kohavi_Resume.88ca6ff76f94d2832d9b.pdf",
+    "static/media/p5.jpg": "/static/media/p5.6611597d7f9ca1397836.jpg",
     "index.html": "/index.html",
-    "main.b57d6fc4.css.map": "/static/css/main.b57d6fc4.css.map",
-    "main.c5354666.js.map": "/static/js/main.c5354666.js.map"
+    "main.c73e5dc2.css.map": "/static/css/main.c73e5dc2.css.map",
+    "main.ba31e47f.js.map": "/static/js/main.ba31e47f.js.map"
   },
   "entrypoints": [
-    "static/css/main.b57d6fc4.css",
-    "static/js/main.c5354666.js"
+    "static/css/main.c73e5dc2.css",
+    "static/js/main.ba31e47f.js"
   ]
 }
