@@ -2,6 +2,7 @@ import './Bella.css';
 import '../global.css';
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import { isMobile } from 'react-device-detect';
 import p1 from '../assets/p1.jpg';
 import p2 from '../assets/p2.jpg';
 import p3 from '../assets/p3.jpg';
@@ -46,6 +47,9 @@ export default function Bella() {
         var progress = calculateProgress();
         const timer = setTimeout(() => setProgress(progress), 100)
         var seconds_remaining = (landing_time - new Date()) / 1000;
+        if (seconds_remaining < 0 || progress === 1) {
+            seconds_remaining = 0;
+        }
         setTimeRemaining(seconds_to_humanreadable(seconds_remaining));
         if (progress >= 1) {
             setTopText("You're here!\nWE DID IT!");
@@ -57,6 +61,45 @@ export default function Bella() {
         return () => clearTimeout(timer)
     }, [progress, calculateProgress, landing_time, seconds_to_humanreadable])
 
+    if (isMobile) {
+        return (
+            <div className="bella-mobile centered">
+                <div className="col2-mobile">
+                    <div className='progress-stuff'>
+                        <h1 className='centered georgia-font'
+                            style={{marginTop: '8vh', fontSize: '10vh'}}>
+                                {top_text}
+                        </h1>
+                        <br></br>
+                        <span>
+                            <h2 className='georgia-font inline'>We're </h2>
+                            <h2 className='monospace-font inline'>{(progress * 100).toFixed(5)}%</h2>
+                            <h2 className='georgia-font inline'> Done!</h2>
+                        </span>
+                        <ProgressBar style={{marginTop: '5vh', marginBottom: '5vh'}} animated variant='success' now={progress * 100} />
+                        <h2 className="centered monospace-font">Time Left: {time_remaining}</h2>
+                        <br></br>
+                        <h2 className='centered georgia-font'>{bottom_text}</h2>
+                    </div>
+                    <div className='col2-photos-mobile'>
+                        <img alt="" className="p5m not-selectable twitch-hover" src={p5}></img>
+                        <img alt="" className="p6m not-selectable twitch-hover" src={p6}></img>
+                        <img alt="" className="p7 not-selectable twitch-hover" src={p7}></img>
+                    </div>
+                </div>
+                <div className="col1-mobile">
+                    <img alt="" className='p1m not-selectable collage-image twitch-hover-neg' src={p1}></img>
+                    <img alt="" className='p9m not-selectable collage-image twitch-hover-neg' src={p9}></img>
+                    <img alt="" className='p8m not-selectable twitch-hover-neg' src={p8}></img>
+                </div>
+                <div className="col3-mobile">
+                    <img alt="" className='p3m not-selectable spin-hover' src={p3}></img>
+                    <img alt="" className="p2m not-selectable collage-image twitch-hover-neg" src={p2}></img>
+                    <img alt="" className="p4m not-selectable twitch-hover-neg" src={p4}></img>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className="bella-desktop centered">
