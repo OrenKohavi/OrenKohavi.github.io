@@ -46,7 +46,7 @@ export default function Homescreen() {
                         <div className="intro-text-container">
                             <span>
                                 <h1 className="hello-text">Hi, I'm Oren</h1>
-                                <h1 className='hello-text spin-hover smiley'>:)</h1>
+                                <h1 className='hello-text tilt-hover smiley'>:)</h1>
                             </span>
                             <h2 className="hello-text-small">{description_text}</h2>
                         </div>

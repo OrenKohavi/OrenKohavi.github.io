@@ -39,5 +39,19 @@
     transition: transform .7s ease-in-out;
 }
 .spin-hover:hover {
+    transform: rotate(360deg);
+}
+
+.tilt-hover {
+    transition: transform .7s ease-in-out;
+}
+.tilt-hover:hover {
     transform: rotate(35deg);
+}
+
+.twitch-hover {
+    transition: transform .7s ease-in-out;
+}
+.twitch-hover:hover {
+    transform: rotate(8deg);
 }
