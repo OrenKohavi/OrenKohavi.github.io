@@ -7,7 +7,7 @@
 }
 
 .landing{
-  height: 100vh;
+  height: 105vh;
 }
 
 .mobile-landing {
@@ -67,6 +67,7 @@
   margin: 0 auto;
   margin-top: 2vw;
   margin-left: 2vw;
+  display: inline-block
 }
 
 .hello-text-small {
@@ -102,4 +103,15 @@
 
 .resume-link {
   color: white
+}
+
+.blue-white-blend {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(255, 255, 255));
+  height: 10vh;
+  width: 100vw;
+  mix-blend-mode: normal;
+}
+
+.smiley {
+  letter-spacing: 0.15em;
 }

@@ -30,3 +30,14 @@
     align-items: center;
     flex-direction: column;
 }
+
+.monospace-font {
+    font-family: 'monospace';
+}
+
+.spin-hover {
+    transition: transform .7s ease-in-out;
+}
+.spin-hover:hover {
+    transform: rotate(35deg);
+}

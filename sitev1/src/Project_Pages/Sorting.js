@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import {isMobile} from 'react-device-detect'
+import NumberPicker from "react-widgets/NumberPicker";
+
 
 export default function Sorting() {
     //This may be overuse of useState, but better safe than sorry
@@ -123,7 +125,25 @@ export default function Sorting() {
             </div>
             <div className="sorting-game">
                 <div className="sorting-info">
+                    <div className="card-number-select-div">
+                        <span>
+                            <h3><label className="card-number-select-label" for="card-number-select">How many cards: </label></h3>
+                            <NumberPicker className="card-number-select"
+                            defaultValue={7} max={15} min={0}
+                            value={num_cards}
+                            onChange={num_cards => {
+                                let user_confirmation = num_cards_changed();
+                                if (user_confirmation) {
+                                    setNumCards(num_cards);
+                                }
+                            }}
+                            />
+                        </span>
+                    </div>
                     <h2 className="nomargin">
+                        {/* Number selector for the number of cards */}
+                        
+                        {/* 
                         <label className="card-number-select-label" for="card-number-select">How many cards: </label>
                         <input className="card-number-select" type="number" min="4" max="15" defaultValue="7" onChange={(e) => {
                             let user_confirmation = num_cards_changed();
@@ -131,6 +151,7 @@ export default function Sorting() {
                                 setNumCards(e.target.value);
                             }
                         }}/>
+                        */}
                     </h2>
                     <h2 className="nomargin">Number Of Operations: {operations}</h2>
                 </div>

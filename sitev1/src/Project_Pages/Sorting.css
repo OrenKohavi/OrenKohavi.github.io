@@ -12,11 +12,13 @@
     overflow: hidden;
 }
 
+/* Slight hack, since it's basically modifying a className from inside react-widgets */
+.rw-widget-input{
+    width: 4vw;
+}
+
 .card-number-select {
-    width: 4ch;
-    height: 3ch;
-    vertical-align: middle;
-    font-size: large;
+    display: inline-block
 }
 
 /* align reset-button-div to the left, and next-button-div to the center */
@@ -115,6 +117,10 @@
         color: #FFF;
         -webkit-transform: rotateX(180deg);
         transform: rotateX(180deg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
 label:hover .card {
@@ -134,4 +140,11 @@ label:hover .card {
 label:hover :checked + .card {
     transform: rotateX(165deg);
     -webkit-transform: rotateX(165deg);
+}
+
+.card-number-select-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

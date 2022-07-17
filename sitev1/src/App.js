@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import {isMobile} from 'react-device-detect'
 import Homescreen from './pages/Homescreen';
@@ -9,6 +9,7 @@ import Sorting from './Project_Pages/Sorting';
 import MyNavbar from './components/MyNavbar';
 import PageNotFound from './pages/PageNotFound';
 import RedirectHome from './components/RedirectHome'
+import Bella from './pages/Bella'
 
 
 
@@ -18,16 +19,21 @@ function App() {
   //const active = "#326186"
   const location = useLocation()
   const [hideNavbar, setHideNavbar] = useState(false)
-  var navbar = <MyNavbar variant={'dark'} hide={hideNavbar}/>
 
-  const navbarHiddenWhen = [ //List of lambdas, if any are true, navbar is hidden.
-    () => {return location.pathname.toLowerCase().includes("/bella")},
-    () => {return isMobile === true},
-  ]
+  const navbarHiddenWhen = useMemo(() => { 
+    return [ //List of lambdas, if any are true, navbar is hidden.
+      () => {return location.pathname.toLowerCase().includes("/bella")},
+      () => {return isMobile === true},
+    ]
+  }, [location])
 
-  const backgroundColorDict = {
-    "/bella" : 'lightpink',
-  }
+  const backgroundColorDict = useMemo(() => {
+    return {
+      "/sorting" : "beige",
+      "/bella" : 'linear-gradient(to right, #FFB3D1, #FF89BB)',
+    }
+  }, [])
+
   const default_background = background
 
   //If any of the lambdas in navbarHiddenWhen are true, hide navbar
@@ -36,11 +42,11 @@ function App() {
     for (let i = 0; i < navbarHiddenWhen.length; i++) {
       if (navbarHiddenWhen[i]()) {
         should_hide_navbar = true;
+        break;
       }
     }
     setHideNavbar(should_hide_navbar)
-    navbar = <MyNavbar variant={'dark'} hide={hideNavbar}/>
-  }, [location, isMobile])
+  }, [location, navbarHiddenWhen])
 
   useEffect(() => {
     var set_something = false;
@@ -53,12 +59,12 @@ function App() {
     if (!set_something) {
       document.body.style.background = default_background;
     }
-  }, [location])
+  }, [location, backgroundColorDict, default_background])
 
   return (
     <div className="App">
       <div className='my-navbar-div centered'>
-        {navbar}
+        <MyNavbar variant={'dark'} hide={hideNavbar}/>
       </div>
       <div className='routes'>
         <Routes>
@@ -67,7 +73,7 @@ function App() {
           <Route path="/about" element={<About/>} />
           <Route path="/projects" element={<Projects/>} />
           <Route path="/projects/sorting" element={<Sorting />} />
-          {/*<Route path="/bella" element={<Bella/>} />*/}
+          <Route path="/bella" element={<Bella/>} />
           <Route path="*" element={<PageNotFound/>} />
         </Routes>
       </div>
