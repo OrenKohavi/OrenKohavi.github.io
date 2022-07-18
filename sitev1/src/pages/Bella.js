@@ -15,7 +15,7 @@ import p9 from '../assets/p9.jpg';
 
 export default function Bella() {
     const start_time = useMemo(() => new Date('June 1, 2022 17:05:00 GMT-4:00'), []);
-    const landing_time = useMemo(() => new Date('August 13, 2022 23:00:00 GMT-07:00'), []);
+    const landing_time = useMemo(() => new Date('August 13, 2022 20:31:00 GMT-07:00'), []);
     const [top_text, setTopText] = useState("I LOVE YOU SO MUCH");
     const [bottom_text, setBottomText] = useState("It'll be over before you know it ❤️");
     const [time_remaining, setTimeRemaining] = useState(null);
@@ -44,14 +44,14 @@ export default function Bella() {
 
     //updates the progress bar every second
     useEffect(() => {
-        var progress = calculateProgress();
-        const timer = setTimeout(() => setProgress(progress), 100)
+        var curr_progress = calculateProgress();
+        const timer = setTimeout(() => setProgress(curr_progress), 100)
         var seconds_remaining = (landing_time - new Date()) / 1000;
         if (seconds_remaining < 0 || progress === 1) {
             seconds_remaining = 0;
         }
         setTimeRemaining(seconds_to_humanreadable(seconds_remaining));
-        if (progress >= 1) {
+        if (curr_progress >= 1) {
             setTopText("You're here!\nWE DID IT!");
             setBottomText("🥳🎉🎉🎉");
         } else {
