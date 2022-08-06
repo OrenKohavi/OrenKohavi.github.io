@@ -10,6 +10,7 @@ import MyNavbar from './components/MyNavbar';
 import PageNotFound from './pages/PageNotFound';
 import RedirectHome from './components/RedirectHome'
 import Bella from './pages/Bella'
+import FamilyTree from './pages/FamilyTree';
 
 
 
@@ -74,6 +75,7 @@ function App() {
           <Route path="/projects" element={<Projects/>} />
           <Route path="/projects/sorting" element={<Sorting />} />
           <Route path="/bella" element={<Bella/>} />
+          <Route path="/family" element={<FamilyTree/>} />
           <Route path="*" element={<PageNotFound/>} />
         </Routes>
       </div>

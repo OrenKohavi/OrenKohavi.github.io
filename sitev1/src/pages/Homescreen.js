@@ -68,7 +68,7 @@ export default function Homescreen() {
                     </div>
                 </div>
             </div>
-            <div className='blue-white-blend'></div>
+            {/*<div className='blue-white-blend'></div>*/}
             <div className="whitebg" style={{backgroundColor : 'white'}}>
                 <div className="projects-landing centered">
                     <h1 className="centered">Making projects is cool, see all my projects here!</h1>

@@ -5,7 +5,7 @@ import '../global.css'
 
 export default function Projects() {
     return (
-        <div className="Projects centered">
+        <div className="Projects centered white">
             <h1>A List of all projects I've done:</h1>
             <h2>Only one so far, but there will eventually be more!</h2>
             <div className="projectList">
