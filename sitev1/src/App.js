@@ -31,6 +31,7 @@ function App() {
   const backgroundColorDict = useMemo(() => {
     return {
       "/sorting" : "beige",
+      "/family" : "white",
       "/bella" : 'linear-gradient(to right, #FFB3D1, #FF89BB)',
     }
   }, [])
