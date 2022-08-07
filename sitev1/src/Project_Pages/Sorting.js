@@ -5,6 +5,7 @@ import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 import {isMobile} from 'react-device-detect'
 import NumberPicker from "react-widgets/NumberPicker";
+import {is_sorted, shuffle} from './SortingLogic.js';
 
 
 export default function Sorting() {
@@ -12,8 +13,9 @@ export default function Sorting() {
     //(Plus, performance impact is minimal with such a simple page)
     let cards_created = 0;
     const max_card_value = 100;
-    const [card_values, setCardValues] = useState([]);
-    const [num_cards, setNumCards] = useState(7);
+    const one_flip_limit = false;
+    const [card_values, set_card_values] = useState([]);
+    const [num_cards, set_num_cards] = useState(7);
     const [operations, setOperations] = useState(0);
     const [flipArray, setFlipArray] = useState(Array(num_cards).fill(false));
     const [flipAllowed, setFlipAllowed] = useState(true);
@@ -21,7 +23,7 @@ export default function Sorting() {
     const [finishopEnabled, setFinishopEnabled] = useState(false);
 
     useEffect(() => {
-        //set nextopEnabled to true when flipAllowed is false
+        //set Finish Operation Enabled to true when flipAllowed is false
         if (!flipAllowed) {
             setFinishopEnabled(true);
         } else {
@@ -29,65 +31,57 @@ export default function Sorting() {
         }
     }, [flipAllowed]);
 
-    let on_cardflip = () => {
+    function on_cardflip() {
         //This function is called before the card is set to flipped in flipArray
         //Therefore if there is a single "true" value in flipArray, this is the second card to be flipped
-        if (flipArray.includes(true)) {
+        if (flipArray.includes(true) || one_flip_limit) {
             //There are at least 2 cards flipped over
             //Don't allow any more flips
             setFlipAllowed(false);
         }
     }
 
-    let flip_card_at_idx = (idx) => {
+    function flip_card_at_idx(idx) {
         let new_flip_array = flipArray.slice();
         new_flip_array[idx] = !new_flip_array[idx];
         setFlipArray(new_flip_array);
     }
 
-    let num_cards_changed = () => {
-        //TODO: Provide a warning that changing the number of cards resets the game
-        //only proceed if the user is sure
-
-        //for now, just reset the cards
-        reset_button_click();
-        return true; //For now, always return true
-    }
-
-    let reset_button_click = () => {
+    function reset_button_click() {
+        //TODO: Perhaps add a confirmation dialog
         //Reset the cards and the operations counter
-        //Also re-generate the card values
         unflip_cards();
-        //Wait 200ms for the cards to flip back over
-        setTimeout(() => {      
-            generate_card_values();
-            setOperations(0);
-        }, 200);
+        setOperations(0);
     }
 
-    let finishop_button_click = () => {
+    function finishop_button_click() {
         //This function is called when the finish_op(eration) button is clicked
         //TODO: Check if the cards are in the correct order
         unflip_cards();
         setOperations(operations + 1);
     }
 
-    let unflip_cards = () => {
+    function unflip_cards() {
         setFlipArray(Array(num_cards).fill(false))
         setFlipAllowed(true);
     }
 
-    let generate_card_values = () => {
+    function generate_card_values() {
         let new_card_array = [];
         for (let i = 0; i < num_cards; i++) {
             //Range from 1 to max_card_value
             new_card_array.push(Math.floor(Math.random() * max_card_value) + 1);
         }
-        setCardValues(new_card_array)
+        //If by random chance the new_card_array is already sorted, regenerate it
+        if (is_sorted(new_card_array)) {
+            new_card_array = shuffle(new_card_array);
+        } else {
+            set_card_values(new_card_array)
+        }
     }
     useEffect(generate_card_values, [num_cards]);
 
-    let render_all_cards = () => {
+    function render_all_cards() {
         let cards = [];
         for (let i = 0; i < num_cards; i++) {
             cards.push(renderCard(i));
@@ -96,7 +90,7 @@ export default function Sorting() {
     }
 
 
-    let renderCard = (value) => {
+    function renderCard(value) {
         let isFlipped = flipArray[cards_created]
         cards_created++;
         return (
@@ -129,13 +123,15 @@ export default function Sorting() {
                         <span>
                             <h3><label className="card-number-select-label" for="card-number-select">How many cards: </label></h3>
                             <NumberPicker className="card-number-select"
-                            defaultValue={7} max={15} min={0}
+                            defaultValue={7} max={15} min={4}
                             value={num_cards}
                             onChange={num_cards => {
-                                let user_confirmation = num_cards_changed();
-                                if (user_confirmation) {
-                                    setNumCards(num_cards);
+                                if (num_cards > 15 || num_cards < 4) {
+                                    return;
                                 }
+                                //TODO: Perhaps add a confirmation dialog here
+                                set_num_cards(num_cards);
+                                reset_button_click();
                             }}
                             />
                         </span>
